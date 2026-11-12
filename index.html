@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudMetrics - Panel de Servidores</title>
+  <link rel="stylesheet" href="variables.css">
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="Componentes.css">
+</head>
+<body>
+
+  <!--  Header Superior -->
+  <header class="main-header" role="banner">
+    <div class="header-left">
+      <button class="btn btn-secondary btn-menu-toggle" id="btn-toggle-menu" aria-label="Abrir menú">☰</button>
+      <div class="logo-brand">CloudMetrics</div>
+      <nav aria-label="Ruta actual">
+        <span class="breadcrumbs">Infraestructura / <strong>Nodos Us</strong></span>
+      </nav>
+    </div>
+    <div class="header-right">
+      <button class="btn btn-secondary btn-theme-toggle" id="btn-theme-toggle" type="button" aria-label="Cambiar tema claro u oscuro" title="Cambiar tema claro u oscuro">
+        <svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <div class="app-container">
+    
+    <aside class="sidebar" id="sidebar" role="navigation" aria-label="Menú principal">
+      <a href="#" class="sidebar-link active" aria-label="Métricas Clúster">
+        <span class="sidebar-icon">▦</span>
+        <span class="sidebar-label">Métricas Clúster</span>
+      </a>
+      <a href="#" class="sidebar-link" aria-label="Instancias Cloud">
+        <span class="sidebar-icon">☁</span>
+        <span class="sidebar-label">Instancias Cloud</span>
+      </a>
+      <a href="#" class="sidebar-link" aria-label="Ajustes del Sistema">
+        <span class="sidebar-icon">⚙</span>
+        <span class="sidebar-label">Ajustes del Sistema</span>
+      </a>
+    </aside>
+
+    
+    <main class="content-area" role="main">
+      <section class="bento-grid" aria-label="Resumen de Métricas">
+        
+        
+        <article class="card card-hero">
+          <span class="card-title">Carga Global del Clúster</span>
+          <div class="metric-value highlight">42.8%</div>
+          <p class="hero-desc" style="line-height: 1.5; font-size: 0.92rem;">
+            98 de 120 contenedores activos funcionando sin fallos de memoria. El servidor trabaja de forma estable.
+          </p>
+          <div class="hero-footer">
+            <div>
+              <span class="stat-label" style="font-size: 0.8rem;">Pods Activos</span>
+              <p style="font-weight: 700; font-size: 1.1rem; margin-top: 0.2rem;">118 / 120</p>
+            </div>
+            <div>
+              <span class="stat-label" style="font-size: 0.8rem;">Reinicios Hoy</span>
+              <p style="font-weight: 700; font-size: 1.1rem; margin-top: 0.2rem;">0</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Latencia -->
+        <article class="card">
+          <span class="card-title">Latencia Promedio</span>
+          <div class="metric-value">18 ms</div>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">Conexión regional estable.</p>
+        </article>
+
+        <!-- Red -->
+        <article class="card">
+          <span class="card-title">Consumo de Red</span>
+          <div class="metric-value">1.2 Gbps</div>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">Uso al 40% de capacidad.</p>
+        </article>
+
+        <!-- Alerta -->
+        <article class="card card-wide" style="display: flex; align-items: center; justify-content: space-between; gap: 1rem;">
+          <div>
+            <span class="card-title">Avisos del Sistema</span>
+            <p style="color: var(--success); font-weight: 600; margin-top: 0.35rem; font-size: 0.92rem;">
+              Todos los servidores registrados están operativos.
+            </p>
+          </div>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Estado actual</span>
+        </article>
+      </section>
+
+      <section class="charts-grid" aria-label="Gráficas de rendimiento">
+        <article class="card chart-card">
+          <div>
+            <h2 class="section-title">Uso de CPU por servidor</h2>
+            <p class="section-subtitle">Porcentaje de uso por servidor</p>
+          </div>
+          <div class="chart-scroll">
+            <svg class="chart-svg" viewBox="0 0 520 230" role="img" aria-labelledby="cpu-chart-title cpu-chart-desc">
+              <title id="cpu-chart-title">Uso de CPU por servidor</title>
+              <desc id="cpu-chart-desc">Gráfica de barras con dos servidores, con valores de 39 y 57 por ciento.</desc>
+              <line class="chart-gridline" x1="42" y1="180" x2="510" y2="180"></line>
+              <line class="chart-gridline" x1="42" y1="135" x2="510" y2="135"></line>
+              <line class="chart-gridline" x1="42" y1="90" x2="510" y2="90"></line>
+              <line class="chart-gridline" x1="42" y1="45" x2="510" y2="45"></line>
+              <text class="chart-axis-label" x="8" y="184">0%</text>
+              <text class="chart-axis-label" x="2" y="139">25%</text>
+              <text class="chart-axis-label" x="2" y="94">50%</text>
+              <text class="chart-axis-label" x="2" y="49">75%</text>
+              <rect class="chart-bar" x="170" y="110" width="56" height="70" rx="6"><title>prod-01: 39%</title></rect>
+              <rect class="chart-bar" x="330" y="78" width="56" height="102" rx="6"><title>prod-02: 57%</title></rect>
+              <text class="chart-x-label" x="198" y="202">prod-01</text>
+              <text class="chart-x-label" x="358" y="202">prod-02</text>
+            </svg>
+          </div>
+        </article>
+        <article class="card chart-card">
+          <div>
+            <h2 class="section-title">Latencia durante el día</h2>
+            <p class="section-subtitle">Milisegundos de latencia</p>
+          </div>
+          <div class="chart-scroll">
+            <svg class="chart-svg" viewBox="0 0 520 230" role="img" aria-labelledby="latency-chart-title latency-chart-desc">
+              <title id="latency-chart-title">Latencia durante el día</title>
+              <desc id="latency-chart-desc">Gráfica de línea de latencia, con valores entre 18 y 34 milisegundos.</desc>
+              <line class="chart-gridline" x1="42" y1="180" x2="510" y2="180"></line>
+              <line class="chart-gridline" x1="42" y1="135" x2="510" y2="135"></line>
+              <line class="chart-gridline" x1="42" y1="90" x2="510" y2="90"></line>
+              <line class="chart-gridline" x1="42" y1="45" x2="510" y2="45"></line>
+              <text class="chart-axis-label" x="8" y="184">10</text>
+              <text class="chart-axis-label" x="8" y="139">20</text>
+              <text class="chart-axis-label" x="8" y="94">30</text>
+              <text class="chart-axis-label" x="8" y="49">40</text>
+              <path class="chart-line-area" d="M58 144 L145 117 L232 126 L319 90 L406 108 L493 72 L493 180 L58 180 Z"></path>
+              <path class="chart-line" d="M58 144 L145 117 L232 126 L319 90 L406 108 L493 72"></path>
+              <circle class="chart-point" cx="58" cy="144" r="5"><title>00:00: 18 ms</title></circle>
+              <circle class="chart-point" cx="145" cy="117" r="5"><title>04:00: 24 ms</title></circle>
+              <circle class="chart-point" cx="232" cy="126" r="5"><title>08:00: 22 ms</title></circle>
+              <circle class="chart-point" cx="319" cy="90" r="5"><title>12:00: 30 ms</title></circle>
+              <circle class="chart-point" cx="406" cy="108" r="5"><title>16:00: 26 ms</title></circle>
+              <circle class="chart-point" cx="493" cy="72" r="5"><title>20:00: 34 ms</title></circle>
+              <text class="chart-x-label" x="58" y="202">00:00</text>
+              <text class="chart-x-label" x="145" y="202">04:00</text>
+              <text class="chart-x-label" x="232" y="202">08:00</text>
+              <text class="chart-x-label" x="319" y="202">12:00</text>
+              <text class="chart-x-label" x="406" y="202">16:00</text>
+              <text class="chart-x-label" x="493" y="202">20:00</text>
+            </svg>
+          </div>
+        </article>
+      </section>
+
+      <section class="card servers-card" aria-labelledby="servers-title">
+        <div class="section-heading">
+          <div>
+            <h2 class="section-title" id="servers-title">Servidores</h2>
+            <p class="section-subtitle">Estado actual de las instancias en uso</p>
+          </div>
+          <button class="btn" id="btn-open-drawer" type="button">Configurar Nodo</button>
+        </div>
+
+        <div class="table-filters">
+          <label class="sr-only" for="server-status-filter">Filtrar servidores por estado</label>
+          <select class="input-field filter-status" id="server-status-filter">
+            <option value="all">Todos los estados</option>
+            <option value="Operativo">Operativo</option>
+            <option value="Mantenimiento">Mantenimiento</option>
+            <option value="Advertencia">Advertencia</option>
+          </select>
+        </div>
+
+        <div class="table-scroll">
+          <table class="servers-table">
+            <thead>
+              <tr>
+                <th scope="col">Servidor</th>
+                <th scope="col">Zona</th>
+                <th scope="col">Dirección IP</th>
+                <th scope="col">CPU</th>
+                <th scope="col">Estado</th>
+                <th scope="col"><span class="sr-only">Acciones</span></th>
+              </tr>
+            </thead>
+            <tbody id="servers-table-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+ 
+  <div class="drawer-overlay" id="drawer-overlay" tabindex="-1"></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+      <h3 id="drawer-title" style="font-size: 1.15rem;">Configurar Servidor</h3>
+      <button class="btn btn-secondary" id="btn-close-drawer" aria-label="Cerrar panel" style="padding: 0.25rem 0.65rem;">✕</button>
+    </div>
+    
+    <form id="drawer-form" style="display: flex; flex-direction: column; height: 100%;">
+      <div class="form-group">
+        <label for="server-name" class="form-label">Nombre del Host</label>
+        <input type="text" id="server-name" class="input-field" value="us-east-prod-01" required>
+      </div>
+
+      <div class="form-group">
+        <label for="server-tier" class="form-label">Capacidad del Servidor</label>
+        <select id="server-tier" class="input-field">
+          <option>Básico </option>
+          <option>Intermedio </option>
+          <option>Avanzado </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="server-date" class="form-label">Fecha de Mantenimiento</label>
+        <input type="date" id="server-date" class="input-field" value="2026-11-15">
+      </div>
+
+      <div class="form-group">
+        <label for="server-notes" class="form-label">Notas de configuración</label>
+        <textarea id="server-notes" class="input-field textarea-field" rows="4" placeholder="Añade detalles, cambios o instrucciones para este servidor"></textarea>
+      </div>
+
+      <div class="switch-container">
+        <span class="form-label">Auto-escalado activado</span>
+        <label class="switch">
+          <input type="checkbox" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+      
+      <div style="margin-top: auto; display: flex; flex-direction: column; gap: 0.75rem; padding-top: 1.5rem;">
+        <button type="submit" class="btn" id="btn-save-drawer">Guardar Cambios</button>
+      </div>
+    </form>
+  </aside>
+
+  
+  <div class="modal-backdrop" id="modal-backdrop"></div>
+  <div class="modal" id="modal-confirm" role="alertdialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <h3 id="modal-title" style="color: var(--danger); font-size: 1.2rem;">¿Reiniciar servidor?</h3>
+    <p id="modal-desc" style="margin: 1rem 0; color: var(--text-muted); font-size: 0.9rem; line-height: 1.5;">
+      ¿Estás seguro de que quieres reiniciar el servidor <strong id="modal-host-name">us-prod-01</strong>? El servicio dejará de responder por unos segundos.
+    </p>
+    <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+      <button type="button" class="btn btn-secondary" id="btn-cancel-modal">Cancelar</button>
+      <button type="button" class="btn btn-danger" id="btn-confirm-action">Sí, reiniciar</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
