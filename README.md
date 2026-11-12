@@ -1,2 +1,0 @@
-# PracticaDashboard
-PracticaDiseño
